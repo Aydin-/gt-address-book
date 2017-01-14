@@ -1,0 +1,13 @@
+group 'GT-address-book'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.7'
+}
