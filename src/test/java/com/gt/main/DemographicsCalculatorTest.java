@@ -37,9 +37,9 @@ public class DemographicsCalculatorTest {
     public void compareAgesTest(){
         Person bill = new Person("Bill McKnight, Male, 16/03/77".split(", "));
         Person paul = new Person("Paul Robinson, Male, 15/01/85".split(", "));
-        assertEquals(2862, DemographicsCalculator.getAgeDifference(bill, paul));
-        assertEquals(2862, DemographicsCalculator.getAgeDifference(paul, bill));
-        assertEquals(0, DemographicsCalculator.getAgeDifference(paul, paul));
+        assertEquals(2862, DemographicsCalculator.getAgeDifferenceInDays(bill, paul));
+        assertEquals(2862, DemographicsCalculator.getAgeDifferenceInDays(paul, bill));
+        assertEquals(0, DemographicsCalculator.getAgeDifferenceInDays(paul, paul));
     }
 
 }
