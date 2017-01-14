@@ -9,16 +9,16 @@ import java.util.stream.Stream;
 
 /**
  * Created by aydingungordu on 1/14/17.
+ *
+ * Design choice: Writing own CSVReader in a few lines could be easier than managing third party dependency.
+ *
  */
 public class CSVReader {
 
-    private final String filename;
     private List<String> allLines;
     private int index = 0;
 
-    public CSVReader(String filename) {
-        this.filename = filename;
-
+    public CSVReader(final String filename) {
         try (Stream<String> stream = Files.lines(Paths.get(this.getClass().getClassLoader().getResource(filename).getPath()))) {
             allLines = stream.collect(Collectors.toList());
 

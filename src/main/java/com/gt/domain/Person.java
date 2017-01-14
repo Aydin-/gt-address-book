@@ -8,7 +8,7 @@ import org.joda.time.format.DateTimeFormat;
  */
 public class Person {
 
-    public Person(String[] personString) {
+    public Person(final String[] personString) {
         this.name = personString[0];
         this.gender = Gender.valueOf(personString[1].toUpperCase());
         this.dateOfBirth = DateTimeFormat.forPattern("dd/MM/yyyy").parseDateTime(personString[2]);
@@ -21,10 +21,9 @@ public class Person {
 
     }
 
-
-    private DateTime dateOfBirth;
-    private String name;
-    private Gender gender;
+    private final DateTime dateOfBirth;
+    private final String name;
+    private final Gender gender;
 
     public DateTime getDateOfBirth() {
         return dateOfBirth;
