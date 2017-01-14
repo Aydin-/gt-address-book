@@ -15,7 +15,7 @@ public class PersonTest {
         assertEquals("Bill McKnight", bill.getName());
         assertEquals(Person.Gender.MALE, bill.getGender());
         assertEquals(16, bill.getDateOfBirth().getDayOfMonth());
-        assertEquals(1977, bill.getDateOfBirth().getYear());
+        assertEquals(77, bill.getDateOfBirth().getYear());
         assertEquals(3, bill.getDateOfBirth().getMonthOfYear());
     }
 }
