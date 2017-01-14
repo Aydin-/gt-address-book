@@ -25,4 +25,15 @@ public class Person {
     private String name;
     private Gender gender;
 
+    public DateTime getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
 }
