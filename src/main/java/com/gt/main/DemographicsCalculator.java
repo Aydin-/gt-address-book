@@ -7,11 +7,11 @@ import org.joda.time.Days;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
  * Created by aydingungordu on 1/14/17.
- *
  */
 public class DemographicsCalculator {
 
@@ -32,7 +32,6 @@ public class DemographicsCalculator {
     /**
      * Could actually count different genders while reading the file, and hold them as constants,
      * but assuming instead that this class may be extended to add people who are not in the CSV file.
-     *
      */
     public long countPeopleOfGender(final Person.Gender gender) {
         return people.stream().filter(person -> person.getGender().equals(gender)).count();
@@ -41,14 +40,17 @@ public class DemographicsCalculator {
     /**
      * Could actually find the oldest person while reading the file, and hold it as constant,
      * but assuming instead that this class may be extended to add people who are not in the CSV file.
-     *
-     *  What if there is a tie for the oldest person? Should I return a list instead?
+     * <p>
+     * What if there is a tie for the oldest person? Should I return a list instead?
      */
     public Person getOldestPerson() {
         return people.stream().min(new PersonAgeComparator()).get();
     }
 
     public static int getAgeDifferenceInDays(final Person personOne, final Person personTwo) {
-        return Math.abs(Days.daysBetween(personOne.getDateOfBirth(), personTwo.getDateOfBirth()).getDays());
+        if (Objects.nonNull(personOne) && Objects.nonNull(personTwo)) {
+            return Math.abs(Days.daysBetween(personOne.getDateOfBirth(), personTwo.getDateOfBirth()).getDays());
+        }
+        return -1;
     }
 }
