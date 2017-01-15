@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 public class DemographicsCalculator {
 
-    private List<Person> people = new ArrayList<>();
+    protected List<Person> people = new ArrayList<>();
 
     public DemographicsCalculator(final String filename) {
         initializePeopleList(filename);
