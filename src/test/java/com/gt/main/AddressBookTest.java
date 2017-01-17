@@ -14,13 +14,13 @@ import static org.junit.Assert.assertEquals;
  *  - How many days older is Bill than Paul?
  */
 
-public class DemographicsCalculatorTest {
+public class AddressBookTest {
 
-    private DemographicsCalculator dc;
+    private AddressBook dc;
 
     @Before
     public void init(){
-        this.dc = new DemographicsCalculator("address-book.csv");
+        this.dc = new AddressBook("address-book.csv");
     }
 
     @Test
@@ -37,9 +37,9 @@ public class DemographicsCalculatorTest {
     public void compareAgesTest(){
         Person bill = new Person("Bill McKnight, Male, 16/03/77".split(", "));
         Person paul = new Person("Paul Robinson, Male, 15/01/85".split(", "));
-        assertEquals(2862, DemographicsCalculator.getAgeDifferenceInDays(bill, paul));
-        assertEquals(2862, DemographicsCalculator.getAgeDifferenceInDays(paul, bill));
-        assertEquals(0, DemographicsCalculator.getAgeDifferenceInDays(paul, paul));
+        assertEquals(2862, AddressBook.getAgeDifferenceInDays(bill, paul));
+        assertEquals(2862, AddressBook.getAgeDifferenceInDays(paul, bill));
+        assertEquals(0, AddressBook.getAgeDifferenceInDays(paul, paul));
     }
 
 }

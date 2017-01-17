@@ -13,11 +13,11 @@ import java.util.Objects;
 /**
  * Created by aydingungordu on 1/14/17.
  */
-public class DemographicsCalculator {
+public class AddressBook {
 
     protected final List<Person> people = new ArrayList<>();
 
-    public DemographicsCalculator(final String filename) {
+    public AddressBook(final String filename) {
         initializePeopleList(filename);
     }
 
