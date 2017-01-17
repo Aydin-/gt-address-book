@@ -21,6 +21,9 @@ public class AddressBook {
         initializePeopleList(filename);
     }
 
+    /**
+     * Initialize entire address book into memory
+     */
     private void initializePeopleList(final String filename) {
         CSVReader csvReader = new CSVReader(filename);
 
@@ -30,23 +33,37 @@ public class AddressBook {
     }
 
     /**
-     * Could actually count different genders while reading the file, and hold them as constants,
-     * but assuming instead that this class may be extended to add people who are not in the CSV file.
+     * Counts people in the address book by gender
+     *
+     * @param  gender to count
+     * @return the number of people of the specified gender
+     * <p>
+     * Assuming that this class may be extended to add people who are not in the CSV file.
      */
     public long countPeopleOfGender(final Person.Gender gender) {
         return people.stream().filter(person -> person.getGender().equals(gender)).count();
     }
 
     /**
-     * Could actually find the oldest person while reading the file, and hold it as constant,
-     * but assuming instead that this class may be extended to add people who are not in the CSV file.
+     * Gets the oldest person from the people list
+     *
+     * @return the oldest person
+     * @throws NoSuchElementException if there are no people in the list
      * <p>
+     * Assuming that this class may be extended to add people who are not in the CSV file.
      * What if there is a tie for the oldest person? Should I return a list instead?
      */
     public Person getOldestPerson() {
         return people.stream().min(new PersonAgeComparator()).get();
     }
 
+    /**
+     * Gets the age difference in days between two people
+     *
+     * @param  personOne
+     * @param  personTwo
+     * @return the age difference in days between personOne and personTwo
+     */
     public static int getAgeDifferenceInDays(final Person personOne, final Person personTwo) {
         if (Objects.nonNull(personOne) && Objects.nonNull(personTwo)) {
             return Math.abs(Days.daysBetween(personOne.getDateOfBirth(), personTwo.getDateOfBirth()).getDays());
